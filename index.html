@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaksi Bimasakti</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="galaxy-background"></div>
+
+    <header>
+        <h1>Galaksi Bimasakti</h1>
+        <p>Eksplor 8 planet utama di tata surya kita!</p>
+    </header>
+
+    <nav>
+        <button onclick="showPlanet('mercury')">Merkurius</button>
+        <button onclick="showPlanet('venus')">Venus</button>
+        <button onclick="showPlanet('earth')">Bumi</button>
+        <button onclick="showPlanet('mars')">Mars</button>
+        <button onclick="showPlanet('jupiter')">Jupiter</button>
+        <button onclick="showPlanet('saturn')">Saturnus</button>
+        <button onclick="showPlanet('uranus')">Uranus</button>
+        <button onclick="showPlanet('neptune')">Neptunus</button>
+    </nav>
+
+    <section id="planet-info">
+        <div id="mercury" class="planet-card">
+            <h2>Merkurius</h2>
+            <img src="images/mercury.png" alt="Merkurius">
+            <p>Planet terkecil dan terdekat dengan Matahari. Diameter: 4,879 km, Suhu: 430°C siang / -180°C malam.</p>
+        </div>
+        <div id="venus" class="planet-card">
+            <h2>Venus</h2>
+            <img src="images/venus.png" alt="Venus">
+            <p>Dikenal sebagai planet kembar Bumi. Diameter: 12,104 km, Atmosfer panas & berawan.</p>
+        </div>
+        <div id="earth" class="planet-card">
+            <h2>Bumi</h2>
+            <img src="images/earth.png" alt="Bumi">
+            <p>Planet tempat kita tinggal. Diameter: 12,742 km, memiliki kehidupan & air melimpah.</p>
+        </div>
+        <div id="mars" class="planet-card">
+            <h2>Mars</h2>
+            <img src="images/mars.png" alt="Mars">
+            <p>Planet merah. Diameter: 6,779 km, terkenal dengan gunung Olympus Mons & lembah Valles Marineris.</p>
+        </div>
+        <div id="jupiter" class="planet-card">
+            <h2>Jupiter</h2>
+            <img src="images/jupiter.png" alt="Jupiter">
+            <p>Planet terbesar. Diameter: 139,820 km, memiliki Great Red Spot & banyak satelit.</p>
+        </div>
+        <div id="saturn" class="planet-card">
+            <h2>Saturnus</h2>
+            <img src="images/saturn.png" alt="Saturnus">
+            <p>Terkenal dengan cincin indah. Diameter: 116,460 km, memiliki banyak satelit & badai besar.</p>
+        </div>
+        <div id="uranus" class="planet-card">
+            <h2>Uranus</h2>
+            <img src="images/uranus.png" alt="Uranus">
+            <p>Planet biru kehijauan, miring 98°. Diameter: 50,724 km, bersuhu sangat dingin.</p>
+        </div>
+        <div id="neptune" class="planet-card">
+            <h2>Neptunus</h2>
+            <img src="images/neptune.png" alt="Neptunus">
+            <p>Planet terjauh. Diameter: 49,244 km, angin tercepat di tata surya & warna biru terang.</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

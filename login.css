@@ -1,0 +1,111 @@
+/* Background bintang animasi */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* 3 layer bintang biar parallax */
+#stars, #stars2, #stars3 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  display: block;
+  background: transparent url('https://www.script-tutorials.com/demos/360/images/stars.png') repeat top center;
+}
+
+#stars {
+  z-index: 0;
+  animation: moveStars 100s linear infinite;
+}
+#stars2 {
+  z-index: 0;
+  animation: moveStars 200s linear infinite;
+}
+#stars3 {
+  z-index: 0;
+  animation: moveStars 300s linear infinite;
+}
+
+@keyframes moveStars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-2000px); }
+}
+
+/* Form login */
+.login-container {
+  position: relative;
+  z-index: 1;
+  width: 350px;
+  margin: 12% auto;
+  padding: 40px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+  text-align: center;
+  color: white;
+}
+
+.login-container h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #00ffff;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-size: 16px;
+}
+
+.login-container input::placeholder {
+  color: #bbb;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #00ffff, #0066ff);
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-container button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00ffff;
+}
+
+/* Pesan error */
+#errorMsg {
+  margin-top: 10px;
+  color: #ff4d4d;
+  font-size: 14px;
+}
+
+/* Animasi shake */
+.shake {
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0px); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0px); }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Galaxy</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      background: black;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Animasi background galaxy */
+    .stars {
+      position: absolute;
+      width: 100%; height: 100%;
+      background: transparent url('https://i.ibb.co/7QpKsCX/stars.png') repeat top center;
+      animation: moveStars 200s linear infinite;
+      z-index: -2;
+    }
+    .twinkling {
+      position: absolute;
+      width: 100%; height: 100%;
+      background: transparent url('https://i.ibb.co/pz5VGLh/twinkling.png') repeat top center;
+      animation: moveTwinkling 100s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes moveStars {
+      from {background-position: 0 0;}
+      to {background-position: -10000px 5000px;}
+    }
+    @keyframes moveTwinkling {
+      from {background-position: 0 0;}
+      to {background-position: 10000px -5000px;}
+    }
+
+    /* Kotak login */
+    .login-box {
+      background: rgba(255,255,255,0.05);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      width: 320px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 0 0 10px cyan;
+      font-size: 24px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .login-box input:focus {
+      background: rgba(255,255,255,0.2);
+      box-shadow: 0 0 10px cyan;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #00f2fe, #4facfe);
+      color: #000;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.4s;
+    }
+
+    .login-box button:hover {
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
+      box-shadow: 0 0 20px cyan;
+      transform: scale(1.05);
+    }
+
+    #error {
+      margin-top: 10px;
+      color: #ff6b6b;
+      font-size: 14px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Galaxy -->
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+
+  <!-- Kotak Login -->
+  <div class="login-box">
+    <h2>🚀 Login Galaxy</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Masuk</button>
+    <p id="error"></p>
+  </div>
+
+  <script>
+    function login() {
+      let user = document.getElementById("username").value;
+      let pass = document.getElementById("password").value;
+
+      // Username & password demo
+      if(user === "admin" && pass === "123") {
+        window.location.href = "index.html"; // pindah ke halaman planet
+      } else {
+        document.getElementById("error").innerText = "❌ Username atau password salah!";
+      }
+    }
+  </script>
+</body>
+</html>

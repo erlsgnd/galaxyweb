@@ -1,0 +1,196 @@
+:root{
+  --bg: radial-gradient(circle at top, #0a0130 0%, #020217 40%, #000010 100%);
+  --card-bg: rgba(10,10,30,0.7);
+  --accent: #62dfff;
+  --glass: rgba(255,255,255,0.05);
+}
+
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  font-family:Inter, "Segoe UI", Roboto, Arial;
+  background:var(--bg);
+  color:#e8f6ff;
+  -webkit-font-smoothing:antialiased;
+  overflow-x: hidden;
+}
+
+/* efek bintang */
+body::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+  animation: twinkle 12s infinite linear;
+  z-index:-3;
+  opacity:0.35;
+}
+
+@keyframes twinkle {
+  from {background-position:0 0;}
+  to {background-position:1000px 1000px;}
+}
+
+.container{width:min(1100px,94%);margin:0 auto;}
+
+#starfield{position:fixed;inset:0;z-index:-2}
+
+/* header */
+.site-header{
+  padding:36px 0 12px;
+  text-align:center;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.02), transparent);
+}
+.site-header h1{
+  font-size:2.2rem;
+  color:#aeeaff;
+  text-shadow:0 0 15px rgba(100,200,255,0.6);
+}
+.site-header .subtitle{
+  opacity:0.85;
+  margin-top:6px;
+  color:#d2f9ff;
+}
+
+/* nav */
+.planet-nav{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+  justify-content:center;
+}
+.planet-nav a{
+  color:#cfefff;
+  padding:8px 14px;
+  border-radius:12px;
+  text-decoration:none;
+  background:linear-gradient(145deg, rgba(0, 200, 255, 0.15), rgba(150, 0, 255, 0.15));
+  border:1px solid rgba(255,255,255,0.06);
+  transition:all .25s ease;
+}
+.planet-nav a:hover{
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 0 20px rgba(0,200,255,0.4);
+}
+
+/* cards layout */
+#planet-section{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:28px;
+  padding:28px 0 80px;
+}
+
+/* bigger screens: 2-column cards */
+@media(min-width:900px){
+  #planet-section{grid-template-columns:repeat(2,1fr);padding:40px 0}
+}
+
+.planet-card{
+  background:var(--card-bg);
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 8px 40px rgba(0,0,0,0.8);
+  overflow:hidden;
+  transform:translateY(12px);
+  opacity:0;
+  transition:all .7s ease;
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  backdrop-filter: blur(6px);
+}
+.planet-card.visible{opacity:1;transform:none}
+
+/* internal layout */
+.card-inner{display:flex;gap:16px;flex:1;align-items:flex-start}
+.planet-figure{width:160px;flex:0 0 160px;text-align:center}
+.planet-figure img{
+  width:120px;height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid rgba(255,255,255,0.1);
+  box-shadow:0 0 25px rgba(0,200,255,0.25);
+  transition:transform .5s, box-shadow .5s;
+}
+.planet-figure img:hover{
+  transform:translateY(-8px) scale(1.07);
+  box-shadow:0 0 40px rgba(0,200,255,0.6);
+}
+
+.planet-info h2{
+  margin:0 0 6px;
+  font-size:22px;
+  color:#aeeaff;
+  text-shadow:0 0 10px rgba(100,200,255,0.6);
+}
+.lead{margin:6px 0 12px;color:#e1faff}
+.facts{list-style:none;padding-left:0;margin:0 0 12px;color:#cfefff}
+.facts li{padding:4px 0;font-size:15px}
+.fun{font-style:italic;color:#bff0ff}
+
+/* more details hidden by default */
+.more-details{display:none;margin-top:10px;color:#d6f8ff}
+.more-btn{
+  background:rgba(0,200,255,0.08);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:8px 14px;
+  border-radius:8px;
+  color:var(--accent);
+  cursor:pointer;
+  margin-top:6px;
+  transition:all .3s ease;
+}
+.more-btn:hover{
+  background:rgba(0,200,255,0.2);
+  box-shadow:0 0 15px rgba(0,200,255,0.6);
+}
+
+/* footer */
+.site-footer{
+  padding:30px 0;
+  border-top:1px solid rgba(255,255,255,0.08);
+  text-align:center;
+  color:#9fdff9;
+  font-size:13px;
+  background:linear-gradient(to top, rgba(255,255,255,0.02), transparent);
+}
+
+/* planet buttons */
+.planet-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 25px 0;
+}
+.planet-btn {
+  background: linear-gradient(145deg, rgba(0,200,255,0.15), rgba(180,0,255,0.2));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 18px;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  text-decoration: none;
+}
+.planet-btn img {width: 24px;height: 24px;object-fit: contain;}
+.planet-btn:hover {
+  background: rgba(0, 200, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.7);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* small screens adjustments */
+@media(max-width:520px){
+  .card-inner{flex-direction:column;align-items:center;text-align:center}
+  .planet-figure{width:100%}
+  .planet-figure img{width:160px;height:160px}
+}

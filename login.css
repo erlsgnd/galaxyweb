@@ -1,111 +1,125 @@
-/* Background bintang animasi */
-body {
+* {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  background: black;
-  overflow: hidden;
-  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 
-/* 3 layer bintang biar parallax */
-#stars, #stars2, #stars3 {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0; left: 0;
-  display: block;
-  background: transparent url('https://www.script-tutorials.com/demos/360/images/stars.png') repeat top center;
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background: black;
+  overflow: hidden;
+  color: white;
 }
 
 #stars {
-  z-index: 0;
-  animation: moveStars 100s linear infinite;
-}
-#stars2 {
-  z-index: 0;
-  animation: moveStars 200s linear infinite;
-}
-#stars3 {
-  z-index: 0;
-  animation: moveStars 300s linear infinite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
-@keyframes moveStars {
-  from { transform: translateY(0); }
-  to { transform: translateY(-2000px); }
-}
-
-/* Form login */
 .login-container {
-  position: relative;
-  z-index: 1;
-  width: 350px;
-  margin: 12% auto;
-  padding: 40px;
-  background: rgba(0,0,0,0.6);
+  background: rgba(20, 20, 30, 0.9);
+  padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
   text-align: center;
-  color: white;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+  animation: fadeIn 1.5s ease;
 }
 
 .login-container h1 {
   margin-bottom: 20px;
-  font-size: 24px;
-  color: #00ffff;
+  color: cyan;
+  text-shadow: 0 0 10px cyan;
 }
 
-.login-container input {
+input {
   width: 100%;
   padding: 12px;
-  margin: 12px 0;
+  margin: 10px 0;
   border: none;
   border-radius: 8px;
   outline: none;
-  background: rgba(255,255,255,0.1);
+  background: #111;
   color: white;
   font-size: 16px;
 }
 
-.login-container input::placeholder {
-  color: #bbb;
-}
-
-.login-container button {
+button {
   width: 100%;
   padding: 12px;
+  margin-top: 10px;
   border: none;
   border-radius: 8px;
-  background: linear-gradient(45deg, #00ffff, #0066ff);
+  background: cyan;
   color: black;
+  font-size: 18px;
   font-weight: bold;
-  font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.login-container button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #00ffff;
+button:hover {
+  background: lime;
+  box-shadow: 0 0 15px lime;
 }
 
-/* Pesan error */
-#errorMsg {
-  margin-top: 10px;
-  color: #ff4d4d;
-  font-size: 14px;
+.notif {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #6b5b95, #feb236);
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.6);
+  font-weight: bold;
+  text-align: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Animasi shake */
-.shake {
-  animation: shake 0.3s;
+.notif.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
-@keyframes shake {
-  0% { transform: translateX(0px); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0px); }
+a {
+  text-decoration: none;   /* ilangin garis bawah */
+  color: cyan;             /* warna link */
+  font-weight: bold;       /* biar agak tegas */
+  transition: 0.3s;
+}
+
+a:hover {
+  color: #00ffffcc;        /* efek hover */
+}
+#warpEffect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  z-index: 9999;
+}
+#warpEffect.active {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
